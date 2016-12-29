@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>THS Slides</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			font-family: Roboto, "Segeo UI", "Helvetica Neue", Tahoma, Arial, sans-serif, "PingFang SC", "Hiragino Sans GB", "Source Han Sans", "Microsoft Yahei", "STHeiti", "SimSun";
+		}
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		#mf {
+			width: 640px;
+			margin: 20px auto;
+			padding: 20px;
+			border:  1px solid #EEE;
+			border-radius: -20px;
+		}
+		h1 {
+			color: #CCC;
+			font-weight: 400;
+			text-align: center;
+			position: relative;
+		}
+		h1::before, h1::after {
+			content: '';
+			position: absolute;
+			width: calc(50% - 2em);
+			height: 2px;
+			background-color: #CCC;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		h1::before {
+			left: 0;
+		}
+		h1::after {
+			right: 0;
+		}
+		li {
+			color: #999;
+		}
+		a {
+			color: #999;
+			font-size: 20px;
+			font-weight: 400;
+			text-decoration: none;
+			transition: all .2s ease-out;
+		}
+		a:hover {
+			/* text-decoration: underline; */
+			color: #444;
+		}
+	</style>
+</head>
+<body>
+	<div id="mf">
+		<h1>2016</h1>
+		<ul>
+			<li><a href="20161229-put-100m-into-10m-with-0-cost/index.html">2016-12-29 零成本如何在10平米内装下100平</a></li>
+		</ul>
+	</div>
+</body>
+</html>
