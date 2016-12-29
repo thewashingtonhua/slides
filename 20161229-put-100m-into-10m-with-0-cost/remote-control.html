@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Reveal Remote</title>
+    
+    <script src="https://cdn.wilddog.com/sdk/js/2.3.10/wilddog.js"></script>
+    <script src="https://cdn.wilddog.com/sdk/js/2.3.10/wilddog-sync.js"></script>
+    <script src="../lib/jquery/jquery.min.js"></script>
+    
+    <style type="text/css">
+        .clearfix::after {
+            clear: both;
+            content: '.';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        #left, #right, #up, #down {
+            height: 100px;
+            float: left;
+            margin-bottom: 20px;
+        }
+        #left, #right{
+            width:  50%;
+        }
+        #up, #down{
+            width:  100%;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reveal Remote Controller</h2>
+    <div id="controllers" class="clearfix">
+        <button class="btn" id="up">up</button>
+        <button class="btn" id="left">left</button>
+        <button class="btn" id="right">right</button>
+        <button class="btn" id="down">down</button>
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            // 配置野狗
+            var config = {
+                 //填上自己的野狗服务器标识
+                authDomain: "revealppt.wilddog.com",
+                syncURL: "https://revealppt.wilddogio.com"
+            };
+            wilddog.initializeApp(config);
+            var ref = wilddog.sync().ref("reveal");
+            // 1234 上右下左
+            $('#up').on('click', function() {
+                changeData(1);
+            });
+            $('#right').on('click', function() {
+                changeData(2);
+            });
+            $('#down').on('click', function() {
+                changeData(3);
+            });
+            $('#left').on('click', function() {
+                changeData(4);
+            });
+            // 设置向野狗更新数据
+            function changeData(status) {
+                var time = String((new Date()).getTime()).slice(0,11);
+                var data = {
+                    status: status,
+                    time: time
+                };
+                ref.set(data);
+            }
+            // 转换数据成野狗能正常保存的数据
+            // function transData(orgdata) {
+            //  return JSON.parse(JSON.stringify(orgdata));
+            // }
+        }
+    </script>
+</body>
+</html>
